@@ -28,7 +28,7 @@ class UserRepository {
       GoogleSignInAccount? signInAccount = await _googleSignin.signIn();
       if (signInAccount == null) return false;
       GoogleSignInAuthentication signInAuthentication =
-      await signInAccount.authentication;
+          await signInAccount.authentication;
       final auth.AuthCredential credential = auth.GoogleAuthProvider.credential(
         idToken: signInAuthentication.idToken,
         accessToken: signInAuthentication.accessToken,
@@ -42,7 +42,7 @@ class UserRepository {
       if (!isUserExistedInDb) {
         await dbManager.insertUser(_convertToUser(firebaseUser));
       }
-     currentUser = await dbManager.getUserInfoFromDbById(firebaseUser.uid);
+      currentUser = await dbManager.getUserInfoFromDbById(firebaseUser.uid);
       return true;
     } catch (error) {
       print("signInErrorCaught!:${error.toString()}");
@@ -51,7 +51,8 @@ class UserRepository {
   }
 
   _convertToUser(auth.User firebaseUser) {
-    return User(UserId: firebaseUser.uid,
+    return User(
+        userId: firebaseUser.uid,
         displayName: firebaseUser.displayName ?? "",
         inAppUserName: firebaseUser.displayName ?? "",
         photoUrl: firebaseUser.photoURL ?? "",

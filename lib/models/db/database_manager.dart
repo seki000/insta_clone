@@ -16,7 +16,7 @@ class DatabaseManager {
   }
 
   Future<void> insertUser(User user) async{
-    await _db.collection("users").doc(user.UserId).set(user.toMap());
+    await _db.collection("users").doc(user.userId).set(user.toMap());
   }
 
   Future<User> getUserInfoFromDbById(String uid) async{
