@@ -1,5 +1,5 @@
 class User {
-  final String UserId;
+  final String userId;
   final String displayName; //firebaseに登録したUser情報に紐づいているユーザー名
   final String inAppUserName; //このアプリの中で編集できるユーザー名(最初はdisplayNameと同じ）
   final String photoUrl;
@@ -9,7 +9,7 @@ class User {
 //<editor-fold desc="Data Methods">
 
   const User({
-    required this.UserId,
+    required this.userId,
     required this.displayName,
     required this.inAppUserName,
     required this.photoUrl,
@@ -17,34 +17,31 @@ class User {
     required this.bio,
   });
 
-//プロフ@override
+  @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-          (other is User &&
-              runtimeType == other.runtimeType &&
-              UserId == other.UserId &&
-              displayName == other.displayName &&
-              inAppUserName == other.inAppUserName &&
-              photoUrl == other.photoUrl &&
-              email == other.email &&
-              bio == other.bio
-          );
-
+      (other is User &&
+          runtimeType == other.runtimeType &&
+          userId == other.userId &&
+          displayName == other.displayName &&
+          inAppUserName == other.inAppUserName &&
+          photoUrl == other.photoUrl &&
+          email == other.email &&
+          bio == other.bio);
 
   @override
   int get hashCode =>
-      UserId.hashCode ^
+      userId.hashCode ^
       displayName.hashCode ^
       inAppUserName.hashCode ^
       photoUrl.hashCode ^
       email.hashCode ^
       bio.hashCode;
 
-
   @override
   String toString() {
     return 'User{' +
-        ' UserId: $UserId,' +
+        ' userId: $userId,' +
         ' displayName: $displayName,' +
         ' inAppUserName: $inAppUserName,' +
         ' photoUrl: $photoUrl,' +
@@ -53,9 +50,8 @@ class User {
         '}';
   }
 
-
   User copyWith({
-    String? UserId,
+    String? userId,
     String? displayName,
     String? inAppUserName,
     String? photoUrl,
@@ -63,7 +59,7 @@ class User {
     String? bio,
   }) {
     return User(
-      UserId: UserId ?? this.UserId,
+      userId: userId ?? this.userId,
       displayName: displayName ?? this.displayName,
       inAppUserName: inAppUserName ?? this.inAppUserName,
       photoUrl: photoUrl ?? this.photoUrl,
@@ -72,10 +68,9 @@ class User {
     );
   }
 
-
   Map<String, dynamic> toMap() {
     return {
-      'UserId': this.UserId,
+      'userId': this.userId,
       'displayName': this.displayName,
       'inAppUserName': this.inAppUserName,
       'photoUrl': this.photoUrl,
@@ -86,7 +81,7 @@ class User {
 
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      UserId: map['UserId'] as String,
+      userId: map['userId'] as String,
       displayName: map['displayName'] as String,
       inAppUserName: map['inAppUserName'] as String,
       photoUrl: map['photoUrl'] as String,
@@ -95,7 +90,5 @@ class User {
     );
   }
 
-
-  //</editor-fold>
-
+//</editor-fold>
 }
