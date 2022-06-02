@@ -43,5 +43,21 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<!-- image_picker section>
+	<key>NSPhotoLibraryUsageDescription</key>
+    <string>Your Photo Library is required for this app</string>
+    <key>NSCameraUsageDescription</key>
+    <string>Your Camera Library is required for this app</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Your Microphone Library is required for this app</string>
+	<!-- End of image_picker section>
+	<!-- geolocator section>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app needs access to location when open.</string>
+	<!-- End of geolocator section>
+
+
 </dict>
 </plist>
+
+
