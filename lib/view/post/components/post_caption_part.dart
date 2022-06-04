@@ -11,11 +11,12 @@ class PostCaptionPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      if (from == PostCaptionOpenMode.FROM_POST) {
-      final postViewModel = Provider.of<PostViewModel>(context);
+    final postViewModel = Provider.of<PostViewModel>(context);
+
+    if (from == PostCaptionOpenMode.FROM_POST) {
       final image = (postViewModel.imageFile != null)
           ? Image.file(postViewModel.imageFile!)
-          : Image.asset("assets/images/no_image.png");
+          : Image.asset("assets/assets/images/no_image.png");
 
       return ListTile(
         //TODO
