@@ -22,7 +22,7 @@ class PostViewModel extends ChangeNotifier {
     isProcessing = true;
     notifyListeners();
 
-    await postRepository.pickImage(uploadType);
+    imageFile = await postRepository.pickImage(uploadType);
     print("pickImage: ${imageFile?.path}");
 
     location = await postRepository.getCurrentLocation();
